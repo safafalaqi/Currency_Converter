@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         convertBT.setOnClickListener{
             if(editText.text.isNotEmpty()) {
-                var curr = editText.text.toString().toDouble()
+                val curr = editText.text.toString().toDouble()
                 Log.d("KLLL", dateText.text.toString())
                 dateText.text = curencyDetails?.date.toString()
                 convertCurrency(spSelect,curr)
@@ -65,8 +65,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun calculateExchange(amount: Double, exchangeRate: Double?): Double{
-        var result=0.0
-        result= amount* exchangeRate!!
+
+        val result= amount* exchangeRate!!
         return result
     }
 
