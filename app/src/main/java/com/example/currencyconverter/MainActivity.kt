@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
 
     //for spinner selection
     var spSelect: Int = 0
-    val currencyList = arrayListOf("SAR", "AUD", "CNY", "INR", "USD", "JPY")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +74,7 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = ArrayAdapter(
             this,
-            android.R.layout.simple_spinner_item, currencyList
+            android.R.layout.simple_spinner_item, ConstantValues.currencyList
         )
 
             spinner.adapter = adapter
@@ -99,7 +98,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getApiResult(){
-        val apiInterface = APIClient().getClient()?.create(APIInterface::class.java)
+        val apiInterface = APIClient.getClient()?.create(APIInterface::class.java)
 
         val call: Call<CurrencyDetails?>? = apiInterface!!.getFromJson()
             call?.enqueue(object : Callback<CurrencyDetails?> {
